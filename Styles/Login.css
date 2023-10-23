@@ -80,8 +80,7 @@ body {
 
 .Login__table {
     margin: 0 auto;
-    border: 1px black solid;
-    max-width: 500px;
+    max-width: 575px;
 }
 
 .Login__table_title {
@@ -100,8 +99,74 @@ body {
     font-size: 22px;
     font-weight: 600;
     line-height: 25.78px;
+    padding-top: 20px;
 }
 
-.Login__table_email button {
-    
+.Login__table_email_input {
+    border: solid 0.6px #A9A9A9;
+    border-radius: 6px;
+    min-width: 575px;
+    min-height: 60px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 14;
+    line-height: 21px;
+    padding-top: 10px;
+}
+
+.Login__table_password_title {
+    color: #221F1F;
+    font-family: "Roboto", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 25.78px;
+    padding-top: 20px;
+}
+
+.Login__table_password_input {
+    border: solid 0.6px #A9A9A9;
+    border-radius: 6px;
+    min-width: 575px;
+    min-height: 60px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 14;
+    line-height: 21px;  
+    padding-top: 10px;
+}
+
+.Login__table_verif {
+    display: flex;
+    padding-top: 10px;
+}
+
+.Login__table .Login__table_verif_input {
+    border: 1px solid #EF4934;
+}
+
+.Login__table_verif_text {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #221F1F;
+    padding-left: 10px;
+
+}
+
+.Login__table_btn {
+    padding-top: 10px;
+}
+
+.Login__table_btn_name {
+    min-width: 575px;
+    min-height: 60px;
+    border-radius: 6px;
+    background-color: #EF4934;
+    font-family: "Roboto", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 25.78px;
+    color: #FFF;
+    border: none;
 }
