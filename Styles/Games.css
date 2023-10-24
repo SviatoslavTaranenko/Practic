@@ -85,7 +85,7 @@ body {
 
 .Filter__forms_qwe {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr 2fr;
     justify-content: center;
     align-items: center;
     color: #FFFFFF;
@@ -112,7 +112,7 @@ body {
 }
 
 .Filter__forms_search {
-    margin-left: 60px;
+    margin-left: 150px;
 }
 
 .Games .Games__title {
