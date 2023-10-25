@@ -1,0 +1,31 @@
+.Login_Done {
+    margin: 0 auto;
+    max-width: 575px;
+}
+
+
+
+
+
+
+.Login__table_btn {
+    padding-top: 10px;
+
+}
+
+.Login__table_btn_name {
+    min-width: 575px;
+    min-height: 60px;
+    border-radius: 6px;
+    background-color: #EF4934;
+    font-family: "Roboto", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 25.78px;
+    color: #FFF;
+    border: none;
+}
+
+.Login__table_btn_name:active {
+    box-shadow: 0 0 0 4px #A9A9A9;
+}
