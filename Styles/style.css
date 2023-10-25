@@ -21,8 +21,8 @@ body {
 .header__img {
     margin-top: 8px;
     margin-bottom: 8px;
-    min-width: 55px;
-    min-height: 57.32px;
+    width: 55px;
+    height: 55px;
     justify-content: center;
     margin-left: 61px;
 } 

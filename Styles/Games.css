@@ -18,8 +18,8 @@ body {
 .header__img {
     margin-top: 8px;
     margin-bottom: 8px;
-    min-width: 55px;
-    min-height: 57.32px;
+    width: 55px;
+    height: 55px;
     justify-content: center;
     margin-left: 61px;
 } 
@@ -83,9 +83,9 @@ body {
     align-items: center;
 }
 
-.Filter__forms_qwe {
+.Filter__forms {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 2fr;
+    grid-template-columns: 1fr 2fr 1.5fr 2fr;
     justify-content: center;
     align-items: center;
     color: #FFFFFF;
@@ -95,14 +95,14 @@ body {
     line-height: 21px;
 }
 
-.Filter__forms_qwe_Type {
+.Filter__forms_select {
     margin-left: 100px;
 }
 
 .Filter__forms_checkbox {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    margin-left: 100px;
+    margin-left: 120px;
 }
 
 .Filter__forms_radio {

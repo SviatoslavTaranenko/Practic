@@ -1,5 +1,5 @@
 .Login_Done {
-    margin: 0 auto;
+    margin: auto auto;
     max-width: 575px;
 }
 
@@ -10,7 +10,7 @@
     font-family: "Roboto", sans-serif;
     font-size: 48px;
     font-weight: 700;
-    line-height: 32px;
+    line-height: 40px;
 }
 
 .Login_Done_text {
@@ -19,8 +19,8 @@
     color: #221F1F;
     font-family: "Roboto", sans-serif;
     font-size: 48px;
-    font-weight: 700;
-    line-height: 32px;
+    font-weight: 400;
+    line-height: 0px;
 }
 
 
