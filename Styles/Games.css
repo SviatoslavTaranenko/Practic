@@ -11,7 +11,6 @@ body {
 
 .header__all {
     display: grid;
-    /* grid-template-columns: 3fr 1fr; змітити коли потрібно буде додати кнопку логін  */
     grid-template-columns: 6fr 1fr;
 }
 
@@ -105,25 +104,43 @@ body {
 
 .Filter__forms_radio {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-left: 100px;
+    grid-template-columns: 1fr 2fr;
+    margin-left: 50px;
     color: #FFF;
     font-size: 14px;
 }
 
 .Filter__forms_search {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.Filter__forms_search_input {
     border: none;
-    margin-left: 150px;
-    background-image: url();
-    /* ackground-position: left 12px center;
-    background-repeat: no-repeat; */
+    width: 200px;
+    height: 34px;
+    margin-left: 100px;
+    padding-left: 30px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background-image: url(../img/Icons.png);
+    background-position: left;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+.Filter__forms_search_input:focus {
+    box-shadow: 0 0 0 1px #A9A9A9; /* Погратися з фокусом */
 }
 
 .Filter__forms_search_btn {
     border: none;
     width: 75px;
-    height: 36px;
-    padding: 13px 20px 13px 20px;
+    height: 34px;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     background-color: #EF4934;
@@ -132,6 +149,10 @@ body {
     font-weight: 400;
     line-height: 21px;
     color: #FFF;
+}
+
+.Filter__forms_search_btn:active {
+    box-shadow: 0 0 0 1px #A9A9A9;
 }
 
 .Games .Games__title {
