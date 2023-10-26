@@ -107,10 +107,31 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-left: 100px;
+    color: #FFF;
+    font-size: 14px;
 }
 
 .Filter__forms_search {
+    border: none;
     margin-left: 150px;
+    background-image: url();
+    /* ackground-position: left 12px center;
+    background-repeat: no-repeat; */
+}
+
+.Filter__forms_search_btn {
+    border: none;
+    width: 75px;
+    height: 36px;
+    padding: 13px 20px 13px 20px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: #EF4934;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #FFF;
 }
 
 .Games .Games__title {
