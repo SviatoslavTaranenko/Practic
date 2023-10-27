@@ -36,3 +36,11 @@ let container = document.getElementById("container");
 let newElement = document.createElement("h1");
     newElement.textContent = "Новий елемент створений з JavaScript";
     container.appendChild(newElement);
+
+
+/*     <p id="myParagraph">Цей текст буде змінений через JavaScript.</p>
+
+<script>
+    var element = document.getElementById("myParagraph");
+    element.textContent = "Новий текст, переданий з JavaScript";
+</script> */
