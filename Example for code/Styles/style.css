@@ -1,0 +1,10 @@
+.title {
+    display: flex;
+    justify-content: center;
+    color: #221F1F;
+    font-family: "Roboto", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 40px;
+}
+    
