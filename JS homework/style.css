@@ -24,6 +24,7 @@ input {
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
+  text-align: center;
 }
 
 select {
@@ -35,6 +36,7 @@ select {
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
+  text-align: center;
 }
 
 button {
@@ -54,6 +56,7 @@ button {
 button:active {
   box-shadow: 0 0 0 1px #A9A9A9;
 }
+
 span {
   border: solid 1px #A9A9A9;
   border-radius: 6px;
@@ -63,4 +66,5 @@ span {
   font-weight: 400;
   font-size: 14px;
   line-height: 42px;
+  text-align: center;
 }
