@@ -10,9 +10,54 @@
  * - else return number of result: 1 '+' 2 returns 3
  *
  */
-function calculate(/* firstValue, secondValue, operation */) {
-    // TODO: write your code here, remove the line below and uncomment the lines above
-    return Math.random() > 0.5 ? 'Error' : 42;
+function calculate(firstValue, secondValue, operation) {
+    const firstNumber = Number(firstValue);
+    const  secondNumber = Number(secondValue);
+    const LocalOperation = operation;
+
+    let result = 0;
+
+    if (Number.isNaN(firstNumber) || Number.isNaN(secondNumber)) {
+        return "Enter a number";
+    }
+
+    if (firstValue === "" || secondValue === "") {
+        return "Enter a number";
+    }
+
+    if (result > 100) {
+        return "Result is too big";
+    }
+
+
+    switch (operation) {
+        case "+":
+            result = firstNumber + secondNumber;
+            break;
+
+        case "-":
+            result = firstNumber - secondNumber;
+            break;
+
+        case "/":
+            if (secondNumber === 0) {
+                return "You cannot divide by zero"
+            }
+            result = firstNumber / secondNumber;
+            break;
+
+        case "*":
+            result = firstNumber * secondNumber;
+            break;
+
+        default:
+            return "Choose a valid operation";
+    }
+    return result
 }
+
+result.style.textAlign = "center"
+firstValue.style.textAlign = "center"
+secondValue.style.textAlign = "center"
 
 window.calculate = calculate;
