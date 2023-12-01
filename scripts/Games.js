@@ -132,7 +132,7 @@ const games = [
     },
 ];
 
-const gamesData = games.map(game => ({ ...game, isNew: game.release_date.includes('2022') }));
+const gamesData = games.map((game) => ({ ...game, isNew: game.release_date.includes('2022') }));
 
 function createCardElement(game) {
     const template = document.querySelector('.card-template');
@@ -191,11 +191,30 @@ function createCardElement(game) {
         releaseDateElement.textContent = `Release Date: ${game.release_date}`;
     }
 
-
     return clone;
 }
 
-function renderGames(games) {
+function highlightText(element, searchText) {
+    const { innerHTML } = element;
+    const lowerCaseInnerHTML = innerHTML.toLowerCase();
+    const lowerCaseSearchText = searchText.toLowerCase();
+
+    element.innerHTML = innerHTML.replace(/<\/mark>/g, '').replace(/<mark>/g, '');
+
+    let index = lowerCaseInnerHTML.indexOf(lowerCaseSearchText);
+
+    while (index !== -1) {
+        const start = innerHTML.substring(0, index);
+        const match = innerHTML.substring(index, index + searchText.length);
+        const end = innerHTML.substring(index + searchText.length);
+
+        element.innerHTML = `${start}<mark>${match}</mark>${end}`;
+
+        index = lowerCaseInnerHTML.indexOf(lowerCaseSearchText, index + 1);
+    }
+}
+
+function renderGames(gamess) {
     const cardContainer = document.querySelector('[data-type="card-container"]');
 
     if (!cardContainer) {
@@ -207,14 +226,14 @@ function renderGames(games) {
 
     cardContainer.innerHTML = '';
 
-    games.forEach(game => {
+    gamess.forEach((game) => {
         const cardElement = createCardElement(game);
         if (cardElement) {
             cardContainer.appendChild(cardElement);
 
             const elementsToHighlight = cardElement.querySelectorAll('[data-card-genre], [data-type="Games__cards_top_text_title"], [data-type="Games__cards_top_text_p"]');
 
-            elementsToHighlight.forEach(element => {
+            elementsToHighlight.forEach((element) => {
                 highlightText(element, searchText);
             });
         }
@@ -232,7 +251,7 @@ function filterGames() {
 
         const searchText = searchTextElement.value.toLowerCase();
 
-        const filteredGames = gamesData.filter(game => {
+        const filteredGames = gamesData.filter((game) => {
             const isNewMatch = isNewChecked && game.isNew;
             const isOldMatch = isOldChecked && !game.isNew;
             const genreMatch = selectedGenre === 'Genre' || game.genre === selectedGenre;
@@ -245,9 +264,9 @@ function filterGames() {
         renderGames(filteredGames);
 
         const cardElements = document.querySelectorAll('.card-template');
-        cardElements.forEach(cardElement => {
+        cardElements.forEach((cardElement) => {
             const elementsToHighlight = cardElement.querySelectorAll('[data-card-genre], [data-type="Games__cards_top_text_title"], [data-type="Games__cards_top_text_p"]');
-            elementsToHighlight.forEach(element => {
+            elementsToHighlight.forEach((element) => {
                 highlightText(element, searchText);
             });
         });
@@ -257,61 +276,38 @@ function filterGames() {
         const searchText = searchTextElement.value.toLowerCase();
 
         const cardElements = document.querySelectorAll('[data-type="card-template"]');
-        cardElements.forEach(cardElement => {
+        cardElements.forEach((cardElement) => {
             const elementsToHighlight = cardElement.querySelectorAll('[data-card-genre], [data-type="Games__cards_top_text_title"], [data-type="Games__cards_top_text_p"]');
-            elementsToHighlight.forEach(element => {
+            elementsToHighlight.forEach((element) => {
                 highlightText(element, searchText);
             });
         });
     });
 }
 
-function highlightText(element, searchText) {
-    const innerHTML = element.innerHTML;
-    const lowerCaseInnerHTML = innerHTML.toLowerCase();
-    const lowerCaseSearchText = searchText.toLowerCase();
-
-    // Видаляємо попереднє маркування перед додаванням нового
-    element.innerHTML = innerHTML.replace(/<\/mark>/g, '').replace(/<mark>/g, '');
-
-    let index = lowerCaseInnerHTML.indexOf(lowerCaseSearchText);
-
-    while (index !== -1) {
-        const start = innerHTML.substring(0, index);
-        const match = innerHTML.substring(index, index + searchText.length);
-        const end = innerHTML.substring(index + searchText.length);
-
-        // Додаємо <mark> для виділення тексту
-        element.innerHTML = `${start}<mark>${match}</mark>${end}`;
-
-        // Шукаємо наступне співпадіння
-        index = lowerCaseInnerHTML.indexOf(lowerCaseSearchText, index + 1);
-    }
-}
-
 function init() {
     renderGames(gamesData);
     filterGames();
 
-    const gamePropertiesSelect = document.getElementById('game_properties');
-    const platformRadio = document.getElementById('platform');
-    const onlineGamesRadio = document.getElementById('online-games');
+    // const gamePropertiesSelect = document.getElementById('game_properties');
+    // const platformRadio = document.getElementById('platform');
+    // const onlineGamesRadio = document.getElementById('online-games');
     const applyButton = document.getElementById('apply');
 
-    gamePropertiesSelect.addEventListener('change', () => {
-        const selectedGenre = gamePropertiesSelect.value;
-        filterByGenre(selectedGenre);
-    });
-
-    platformRadio.addEventListener('change', () => {
-        const selectedPlatform = platformRadio.value;
-        filterByPlatform(selectedPlatform);
-    });
-
-    onlineGamesRadio.addEventListener('change', () => {
-        const isOnlineChecked = onlineGamesRadio.checked;
-        filterByOnlineGames(isOnlineChecked);
-    });
+    // gamePropertiesSelect.addEventListener('change', () => {
+    //     const selectedGenre = gamePropertiesSelect.value;
+    //     filterByGenre(selectedGenre);
+    // });
+    //
+    // platformRadio.addEventListener('change', () => {
+    //     const selectedPlatform = platformRadio.value;
+    //     filterByPlatform(selectedPlatform);
+    // });
+    //
+    // onlineGamesRadio.addEventListener('change', () => {
+    //     const isOnlineChecked = onlineGamesRadio.checked;
+    //     filterByOnlineGames(isOnlineChecked);
+    // });
 
     applyButton.addEventListener('click', () => {
         filterGames();
