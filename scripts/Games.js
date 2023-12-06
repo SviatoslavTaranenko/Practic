@@ -1,6 +1,4 @@
 let isLoading = false;
-
-// Змінна для відстеження кількості вже завантажених карток
 let loadedCardsCount = 0;
 
 function showLoading() {
@@ -14,11 +12,9 @@ function hideLoading() {
 }
 
 function loadMoreCards() {
-    // Поки дані не завантажено, встановлюємо прапорець isLoading в true
     isLoading = true;
     showLoading();
 
-    // Здійснюємо запит до API для отримання додаткових карток
     fetch('https://mmo-games.p.rapidapi.com/games', {
         method: 'GET',
         headers: {
@@ -27,9 +23,13 @@ function loadMoreCards() {
             'Content-Type': 'application/json',
         },
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
-            // Обробка отриманих даних
             renderGames(data.slice(loadedCardsCount, loadedCardsCount + 50));
             loadedCardsCount += 50;
             isLoading = false;
@@ -124,7 +124,7 @@ function highlightText(element, searchText) {
     }
 }
 
-function renderGames(gamess) {
+function renderGames(games) {
     const cardContainer = document.querySelector('[data-type="card-container"]');
 
     if (!cardContainer) {
@@ -136,7 +136,9 @@ function renderGames(gamess) {
 
     cardContainer.innerHTML = '';
 
-    gamess.forEach((game) => {
+    console.log('Rendered games:', games); // Додайте цей рядок для логування
+
+    games.forEach((game) => {
         const cardElement = createCardElement(game);
         if (cardElement) {
             cardContainer.appendChild(cardElement);
@@ -161,37 +163,45 @@ function filterGames() {
 
         const searchText = searchTextElement.value.toLowerCase();
 
-        const filteredGames = gamesData.filter((game) => {
-            const isNewMatch = isNewChecked && game.isNew;
-            const isOldMatch = isOldChecked && !game.isNew;
-            const genreMatch = selectedGenre === 'Genre' || game.genre === selectedGenre;
-            const titleMatch = game.title.toLowerCase().includes(searchText);
-            const descriptionMatch = game.short_description.toLowerCase().includes(searchText);
+        try {
+            const filteredGames = gamesData.filter((game) => {
+                const isNewMatch = isNewChecked && game.isNew;
+                const isOldMatch = isOldChecked && !game.isNew;
+                const genreMatch = selectedGenre === 'Genre' || game.genre === selectedGenre;
+                const titleMatch = game.title.toLowerCase().includes(searchText);
+                const descriptionMatch = game.short_description.toLowerCase().includes(searchText);
 
-            return (isNewMatch || isOldMatch) && genreMatch && (titleMatch || descriptionMatch);
-        });
-
-        renderGames(filteredGames);
-
-        const cardElements = document.querySelectorAll('.card-template');
-        cardElements.forEach((cardElement) => {
-            const elementsToHighlight = cardElement.querySelectorAll('[data-card-genre], [data-type="Games__cards_top_text_title"], [data-type="Games__cards_top_text_p"]');
-            elementsToHighlight.forEach((element) => {
-                highlightText(element, searchText);
+                return (isNewMatch || isOldMatch) && genreMatch && (titleMatch || descriptionMatch);
             });
-        });
+
+            renderGames(filteredGames);
+
+            const cardElements = document.querySelectorAll('.card-template');
+            cardElements.forEach((cardElement) => {
+                const elementsToHighlight = cardElement.querySelectorAll('[data-card-genre], [data-type="Games__cards_top_text_title"], [data-type="Games__cards_top_text_p"]');
+                elementsToHighlight.forEach((element) => {
+                    highlightText(element, searchText);
+                });
+            });
+        } catch (error) {
+            console.error('Error filtering games:', error);
+        }
     });
 
     searchTextElement.addEventListener('input', () => {
         const searchText = searchTextElement.value.toLowerCase();
 
-        const cardElements = document.querySelectorAll('[data-type="card-template"]');
-        cardElements.forEach((cardElement) => {
-            const elementsToHighlight = cardElement.querySelectorAll('[data-card-genre], [data-type="Games__cards_top_text_title"], [data-type="Games__cards_top_text_p"]');
-            elementsToHighlight.forEach((element) => {
-                highlightText(element, searchText);
+        try {
+            const cardElements = document.querySelectorAll('[data-type="card-template"]');
+            cardElements.forEach((cardElement) => {
+                const elementsToHighlight = cardElement.querySelectorAll('[data-card-genre], [data-type="Games__cards_top_text_title"], [data-type="Games__cards_top_text_p"]');
+                elementsToHighlight.forEach((element) => {
+                    highlightText(element, searchText);
+                });
             });
-        });
+        } catch (error) {
+            console.error('Error highlighting text:', error);
+        }
     });
 }
 
@@ -202,7 +212,11 @@ function init() {
     const applyButton = document.getElementById('apply');
 
     applyButton.addEventListener('click', () => {
-        filterGames();
+        try {
+            filterGames();
+        } catch (error) {
+            console.error('Error applying filter:', error);
+        }
     });
 }
 
