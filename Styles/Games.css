@@ -399,6 +399,10 @@ body {
 }
 
 .footer__icons_all {
+  display: flex;
+  justify-content: center;
+  margin: auto auto;
+  align-items: center;
   background-color: #FFF;
   width: 42px;
   height: 42px;
@@ -406,9 +410,6 @@ body {
 }
 
 .footer__icons_row img {
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
   width: 20px;
   height: 20px;
 }
