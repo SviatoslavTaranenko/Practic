@@ -379,3 +379,40 @@ body {
   font-size: 14px;
   line-height: 21px;
 }
+
+.footer {
+  background-color: #221F1F;
+  border: none;
+  width: 100%;
+  min-height: 160px;
+}
+
+.footer__icons {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__icons_row {
+  display: flex;
+  justify-content: center;
+  gap: 33px;
+}
+
+.footer__icons_all {
+  background-color: #FFF;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.footer__icons_row img {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+}
+
+.footer__icons_facebook {
+
+}
