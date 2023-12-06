@@ -30,7 +30,7 @@ function createCardElement(game) {
 
     const gameDescriptionElement = clone.querySelector('[data-type="Games__cards_top_text_p"]');
     if (gameDescriptionElement) {
-        gameDescriptionElement.textContent = `Description: ${game.short_description.substring(0, 40)}...`;
+        gameDescriptionElement.textContent = `${game.short_description.substring(0, 35)}...`;
     } else {
         console.error('Element with data-type "Games__cards_top_text_p" not found');
     }

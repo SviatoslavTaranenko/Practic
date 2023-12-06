@@ -324,7 +324,7 @@ body {
 }
 
 .Games__cards_desc {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   border-radius: 12px;
   padding: 12px 12px 22px;
   background-color: #ECECEC;
@@ -369,11 +369,9 @@ body {
   font-size: 14px;
   line-height: 21px;
   margin-top: 0;
-  padding-top: 5px;
 }
 
 .Games__cards_btm {
-  padding-top: 10px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -384,18 +382,20 @@ body {
   background-color: #221F1F;
   border: none;
   width: 100%;
-  min-height: 160px;
+  min-height: 120px;
 }
 
 .footer__icons {
   display: flex;
   justify-content: center;
+
 }
 
 .footer__icons_row {
   display: flex;
   justify-content: center;
   gap: 33px;
+  margin-top: 10px;
 }
 
 .footer__icons_all {
@@ -414,6 +414,22 @@ body {
   height: 20px;
 }
 
-.footer__icons_facebook {
+.footer__text {
+  display: flex;
+  margin-top: 10px;;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  color: #FFF;
+}
 
+.about__text_link {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.about__text_link:hover {
+  color: #EF4934;
 }
