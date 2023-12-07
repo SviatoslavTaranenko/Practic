@@ -382,7 +382,7 @@ body {
   background-color: #221F1F;
   border: none;
   width: 100%;
-  min-height: 120px;
+  min-height: 100px;
 }
 
 .footer__icons {
@@ -395,7 +395,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 33px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .footer__icons_all {
