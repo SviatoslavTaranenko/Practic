@@ -1,6 +1,9 @@
 body {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .header {
@@ -306,8 +309,8 @@ body {
   display: grid;
   grid-template-columns: 275px 275px 275px 275px;
   column-gap: 25px;
-  grid-template-rows: 260px;
-  row-gap: 60px;
+  grid-template-rows: 300px;
+  row-gap: 100px;
   justify-content: center;
   min-height: auto;
 }
@@ -326,7 +329,7 @@ body {
 .Games__cards_desc {
   margin-bottom: 5px;
   border-radius: 12px;
-  padding: 12px 12px 22px;
+  padding: 12px 12px 55px;
   background-color: #ECECEC;
   height: 260px;
 }
@@ -373,10 +376,6 @@ body {
 
 .Games__cards_btm {
   padding-top: 5px;
-}
-
-.Games__cards_btm {
-  padding-top: 10px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
