@@ -5,8 +5,8 @@ body {
 
 .header {
   border: none;
-  width: 100%;
   background-color: #EF4934;
+  width: 100%;
 }
 
 .header__all {
@@ -372,6 +372,11 @@ body {
 }
 
 .Games__cards_btm {
+  padding-top: 5px;
+}
+
+.Games__cards_btm {
+  padding-top: 10px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -388,7 +393,6 @@ body {
 .footer__icons {
   display: flex;
   justify-content: center;
-
 }
 
 .footer__icons_row {
@@ -401,7 +405,7 @@ body {
 .footer__icons_all {
   display: flex;
   justify-content: center;
-  margin: auto auto;
+  margin: auto;
   align-items: center;
   background-color: #FFF;
   width: 42px;
@@ -427,7 +431,7 @@ body {
 
 .footer__text {
   display: flex;
-  margin-top: 10px;;
+  margin-top: 10px;
   justify-content: center;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -444,3 +448,4 @@ body {
 .about__text_link:hover {
   color: #EF4934;
 }
+

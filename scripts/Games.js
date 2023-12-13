@@ -1,6 +1,6 @@
 // games-mock.js
-const games = [];
 
+const games = [];
 const gamesData = games.map((game) => ({ ...game, isNew: game.release_date.includes('2022') }));
 
 function createCardElement(game) {
@@ -30,7 +30,9 @@ function createCardElement(game) {
 
     const gameDescriptionElement = clone.querySelector('[data-type="Games__cards_top_text_p"]');
     if (gameDescriptionElement) {
+
         gameDescriptionElement.textContent = `${game.short_description.substring(0, 35)}...`;
+
     } else {
         console.error('Element with data-type "Games__cards_top_text_p" not found');
     }
@@ -63,26 +65,6 @@ function createCardElement(game) {
     return clone;
 }
 
-function highlightText(element, searchText) {
-    const { innerHTML } = element;
-    const lowerCaseInnerHTML = innerHTML.toLowerCase();
-    const lowerCaseSearchText = searchText.toLowerCase();
-
-    element.innerHTML = innerHTML.replace(/<\/mark>/g, '').replace(/<mark>/g, '');
-
-    let index = lowerCaseInnerHTML.indexOf(lowerCaseSearchText);
-
-    while (index !== -1) {
-        const start = innerHTML.substring(0, index);
-        const match = innerHTML.substring(index, index + searchText.length);
-        const end = innerHTML.substring(index + searchText.length);
-
-        element.innerHTML = `${start}<mark>${match}</mark>${end}`;
-
-        index = lowerCaseInnerHTML.indexOf(lowerCaseSearchText, index + 1);
-    }
-}
-
 function renderGames(gamess) {
     const cardContainer = document.querySelector('[data-type="card-container"]');
 
@@ -107,6 +89,26 @@ function renderGames(gamess) {
             });
         }
     });
+}
+
+function highlightText(element, searchText) {
+    const { innerHTML } = element;
+    const lowerCaseInnerHTML = innerHTML.toLowerCase();
+    const lowerCaseSearchText = searchText.toLowerCase();
+
+    element.innerHTML = innerHTML.replace(/<\/mark>/g, '').replace(/<mark>/g, '');
+
+    let index = lowerCaseInnerHTML.indexOf(lowerCaseSearchText);
+
+    while (index !== -1) {
+        const start = innerHTML.substring(0, index);
+        const match = innerHTML.substring(index, index + searchText.length);
+        const end = innerHTML.substring(index + searchText.length);
+
+        element.innerHTML = `${start}<mark>${match}</mark>${end}`;
+
+        index = lowerCaseInnerHTML.indexOf(lowerCaseSearchText, index + 1);
+    }
 }
 
 function filterGames() {
